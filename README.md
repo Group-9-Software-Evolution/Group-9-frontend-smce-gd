@@ -2,7 +2,7 @@
 Hi and welcome to the git repo for Group 9 in the course Software Evolution Project. 
 
 ## Main documents
-Here you will find the main documents for the group in the course, such as Tasks and Individual contributions. 
+In the documents folder you will find the main documents for the group in the course, such as Tasks and Individual contributions. 
 
 
 
