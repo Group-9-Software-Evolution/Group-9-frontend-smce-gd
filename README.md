@@ -1,3 +1,11 @@
+# Group 9s SMCE-gd directory 
+Hi and welcome to the git repo for Group 9 in the course Software Evolution Project. 
+
+## Main documents
+Here you will find the main documents for the group in the course, such as Tasks and Individual contributions. 
+
+
+
 # SMCE-gd ![CI](https://github.com/ItJustWorksTM/smce-gd/workflows/CI/badge.svg)
 
 Official frontend for [libSMCE](https://github.com/ItJustWorksTM/libSMCE) using [Godot](https://godotengine.org/).  
