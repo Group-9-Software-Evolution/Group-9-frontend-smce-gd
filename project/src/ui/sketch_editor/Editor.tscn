@@ -1,0 +1,77 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/ui/sketch_editor/TextEdit.gd" type="Script" id=1]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2( 2, 3 )
+script = ExtResource( 1 )
+
+[node name="TextEdit" type="TextEdit" parent="."]
+margin_top = 27.0
+margin_right = 1277.0
+margin_bottom = 715.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OpenFile" type="Button" parent="."]
+margin_right = 12.0
+margin_bottom = 26.0
+text = "Open File"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaveFile" type="Button" parent="."]
+margin_left = 80.0
+margin_right = 150.0
+margin_bottom = 26.0
+text = "Save File"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Close" type="Button" parent="."]
+margin_left = 155.0
+margin_right = 247.0
+margin_bottom = 26.0
+text = "Close Editor"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaveFileDialog" type="FileDialog" parent="."]
+visible = true
+margin_left = 417.0
+margin_top = 74.0
+margin_right = 1199.0
+margin_bottom = 507.0
+window_title = "Save sketch"
+access = 2
+current_dir = "/Users/Erik/Desktop/SoftwareEvolutionProject/Group-9-frontend-smce-gd/project"
+current_path = "/Users/Erik/Desktop/SoftwareEvolutionProject/Group-9-frontend-smce-gd/project/"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OpenFileDialog" type="FileDialog" parent="."]
+visible = true
+margin_left = 416.0
+margin_top = 73.0
+margin_right = 1199.0
+margin_bottom = 508.0
+window_title = "Open Sktech"
+mode = 0
+access = 2
+filters = PoolStringArray( "*.ino ; SMCE Sketch files" )
+current_dir = "/Users/Erik/Desktop/SoftwareEvolutionProject/Group-9-frontend-smce-gd/project"
+current_path = "/Users/Erik/Desktop/SoftwareEvolutionProject/Group-9-frontend-smce-gd/project/"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="OpenFile" to="." method="_on_OpenFile_pressed"]
+[connection signal="pressed" from="SaveFile" to="." method="_on_SaveFile_pressed"]
+[connection signal="pressed" from="Close" to="." method="_on_Close_pressed"]
+[connection signal="file_selected" from="SaveFileDialog" to="." method="_on_SaveFileDialog_file_selected"]
+[connection signal="file_selected" from="OpenFileDialog" to="." method="_on_OpenFileDialog_file_selected"]

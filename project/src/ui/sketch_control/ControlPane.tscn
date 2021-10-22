@@ -89,6 +89,8 @@ border_color = Color( 0, 0.478431, 0.8, 1 )
 [node name="ControlPane" type="VBoxContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 7.0
+margin_right = 7.0
 custom_constants/separation = 0
 script = ExtResource( 1 )
 __meta__ = {
@@ -146,8 +148,8 @@ margin_bottom = 32.0
 alignment = 2
 
 [node name="Compile" type="Button" parent="SketchSlot/VBoxContainer2/HBoxContainer/HBoxContainer"]
-margin_left = 1158.0
-margin_right = 1229.0
+margin_left = 1128.0
+margin_right = 1199.0
 margin_bottom = 32.0
 mouse_default_cursor_shape = 2
 theme = ExtResource( 4 )
@@ -157,12 +159,23 @@ __meta__ = {
 }
 
 [node name="CompileLog" type="Button" parent="SketchSlot/VBoxContainer2/HBoxContainer/HBoxContainer"]
-margin_left = 1233.0
-margin_right = 1272.0
+margin_left = 1203.0
+margin_right = 1242.0
 margin_bottom = 32.0
 mouse_default_cursor_shape = 2
 theme = ExtResource( 4 )
 text = "  Log  "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Edit" type="Button" parent="SketchSlot/VBoxContainer2/HBoxContainer/HBoxContainer"]
+margin_left = 1246.0
+margin_right = 1272.0
+margin_bottom = 32.0
+mouse_default_cursor_shape = 2
+theme = ExtResource( 4 )
+text = "Edit"
 __meta__ = {
 "_edit_use_anchors_": false
 }

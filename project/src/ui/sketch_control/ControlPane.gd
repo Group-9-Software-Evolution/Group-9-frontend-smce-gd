@@ -28,6 +28,7 @@ var _board = null
 
 onready var compile_btn: Button = $SketchSlot/VBoxContainer2/HBoxContainer/HBoxContainer/Compile
 onready var compile_log_btn: Button = $SketchSlot/VBoxContainer2/HBoxContainer/HBoxContainer/CompileLog
+onready var edit_btn: Button = $SketchSlot/VBoxContainer2/HBoxContainer/HBoxContainer/Edit
 onready var sketch_status: Label = $SketchSlot/VBoxContainer2/VBoxContainer/SketchStatus
 
 onready var close_btn: ToolButton = $MarginContainer/CloseButton
@@ -111,6 +112,7 @@ func _ready():
 	
 	compile_btn.connect("pressed", self, "_on_compile")
 	compile_log_btn.connect("pressed", self, "_show_compile_log")
+	edit_btn.connect("pressed", self, "_open_sketch_editor")
 	
 	close_btn.connect("pressed", self, "_on_close")
 	pause_btn.connect("pressed", self, "_on_pause")
@@ -235,6 +237,15 @@ func _on_board_log(part: String):
 func _on_compile() -> void:
 	if ! _toolchain.compile(_board.get_sketch()):
 		_create_notification("Failed to start compilation", 5)
+
+# Opens a sketch editor (with the current sketch already loaded) as a child node of the current scene
+func _open_sketch_editor() -> void:
+	var editor_scene_resource = preload("res://src/ui/sketch_editor/Editor.tscn");
+	var editor_scene = editor_scene_resource.instance()
+	editor_scene.sketch_path = sketch_path
+	get_tree().get_root().add_child(editor_scene)
+	#get_tree().root.call_deferred("add_child", editor_scene)
+	#get_tree().change_scene("res://src/ui/sketch_editor/Editor.tscn")
 
 
 func _on_close() -> void:
