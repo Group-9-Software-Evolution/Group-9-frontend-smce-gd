@@ -242,7 +242,7 @@ func _on_compile() -> void:
 func _open_sketch_editor() -> void:
 	var editor_scene_resource = preload("res://src/ui/sketch_editor/Editor.tscn");
 	var editor_scene = editor_scene_resource.instance()
-	editor_scene.sketch_path = sketch_path
+	editor_scene.sketch_path.append(sketch_path)
 	get_tree().get_root().add_child(editor_scene)
 	#get_tree().root.call_deferred("add_child", editor_scene)
 	#get_tree().change_scene("res://src/ui/sketch_editor/Editor.tscn")
