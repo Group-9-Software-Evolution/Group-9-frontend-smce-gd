@@ -9,6 +9,7 @@ script = ExtResource( 1 )
 [node name="Panel" type="Panel" parent="."]
 margin_right = 1280.0
 margin_bottom = 720.0
+rect_pivot_offset = Vector2( 587, 13 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -29,6 +30,8 @@ margin_left = 4.0
 margin_top = 38.0
 margin_right = -4.0
 margin_bottom = -4.0
+syntax_highlighting = true
+show_line_numbers = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -111,12 +114,23 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Minimize" type="Button" parent="."]
+margin_left = 334.032
+margin_top = 0.334686
+margin_right = 426.032
+margin_bottom = 26.3347
+rect_pivot_offset = Vector2( 21.484, 1.21825 )
+text = "Minimize"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="NewSketch" type="Button" parent="."]
-margin_left = 333.516
-margin_top = -0.832657
-margin_right = 425.516
-margin_bottom = 25.1673
-rect_pivot_offset = Vector2( 46, 13 )
+margin_left = 427.516
+margin_top = 0.167343
+margin_right = 519.516
+margin_bottom = 26.1673
+rect_pivot_offset = Vector2( 21.484, 1.21825 )
 text = "New Sketch"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -124,9 +138,9 @@ __meta__ = {
 
 [node name="Close" type="Button" parent="."]
 margin_left = 240.258
-margin_top = -0.916328
+margin_top = 0.083672
 margin_right = 332.258
-margin_bottom = 25.0837
+margin_bottom = 26.0837
 rect_pivot_offset = Vector2( 46, 13 )
 text = "Close Editor"
 __meta__ = {
@@ -139,5 +153,6 @@ __meta__ = {
 [connection signal="pressed" from="OpenFile" to="." method="_on_OpenFile_pressed"]
 [connection signal="pressed" from="SaveAs" to="." method="_on_SaveAs_pressed"]
 [connection signal="pressed" from="SaveFile" to="." method="_on_SaveFile_pressed"]
+[connection signal="pressed" from="Minimize" to="." method="_on_Minimize_pressed"]
 [connection signal="pressed" from="NewSketch" to="." method="_on_NewSketch_pressed"]
 [connection signal="pressed" from="Close" to="." method="_on_Close_pressed"]

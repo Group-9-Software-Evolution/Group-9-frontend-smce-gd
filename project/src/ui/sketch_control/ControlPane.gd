@@ -19,6 +19,7 @@ extends VBoxContainer
 
 var notification_t = preload("res://src/ui/simple_notification/SimpleNotification.tscn")
 var collapsable_t = preload("res://src/ui/collapsable/collapsable.tscn")
+var editor_node = null
 
 signal notification_created
 signal grab_focus
@@ -240,12 +241,14 @@ func _on_compile() -> void:
 
 # Opens a sketch editor (with the current sketch already loaded) as a child node of the current scene
 func _open_sketch_editor() -> void:
-	var editor_scene_resource = preload("res://src/ui/sketch_editor/Editor.tscn");
-	var editor_scene = editor_scene_resource.instance()
-	editor_scene.sketch_path.append(sketch_path)
-	get_tree().get_root().add_child(editor_scene)
-	#get_tree().root.call_deferred("add_child", editor_scene)
-	#get_tree().change_scene("res://src/ui/sketch_editor/Editor.tscn")
+	if(editor_node == null):
+		var editor_scene = preload("res://src/ui/sketch_editor/Editor.tscn");
+		editor_node = editor_scene.instance()
+		editor_node.sketch_path.append(sketch_path)
+		editor_node.parent_node = self
+		get_tree().get_root().add_child(editor_node)
+	else:
+		editor_node.show()
 
 
 func _on_close() -> void:
