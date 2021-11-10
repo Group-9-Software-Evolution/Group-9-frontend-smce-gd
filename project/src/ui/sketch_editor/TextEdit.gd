@@ -6,7 +6,6 @@ var sketch_path = [] # Array containing paths to all open files in the editor
 func _ready():
 	if(sketch_path):
 		_on_OpenFileDialog_file_selected(sketch_path[0])
-	sketch_path.append(" ")
 
 	# Closes the editor, does not save upon exit
 func _on_Close_pressed():
@@ -61,6 +60,7 @@ func _on_NewSketch_pressed():
 	newSketch.text = " "
 	newSketch.name = "New Sketch"
 	$TabContainer.add_child(newSketch)
+	$TabContainer.set_current_tab($TabContainer.get_tab_count()-1)
 
 	# Updates the current tab to whatever is currently recognized as the open files name
 func update_tab_name():
@@ -75,3 +75,14 @@ func get_file_name(path):
 	# Hides the editors node
 func _on_Minimize_pressed():
 	self.hide()
+
+
+func _on_Node2D_visibility_changed():
+	var open = false
+	for tab in $TabContainer.get_children():
+		if(tab.name == sketch_path.back() && sketch_path != ""):
+			open = true
+	if(!open):
+		_on_NewSketch_pressed()
+		sketch_path.pop_back()
+		_on_OpenFileDialog_file_selected(sketch_path.back())

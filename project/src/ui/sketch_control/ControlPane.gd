@@ -247,6 +247,10 @@ func _open_sketch_editor() -> void:
 		Global.editor_node.sketch_path.append(sketch_path)
 		get_tree().get_root().add_child(Global.editor_node)
 	else:
+		print(Global.editor_node.sketch_path)
+		if(!Global.editor_node.sketch_path.has(sketch_path)):
+			Global.editor_node.sketch_path.append(sketch_path)
+			Global.editor_node._on_Node2D_visibility_changed()
 		Global.editor_node.show()
 
 
