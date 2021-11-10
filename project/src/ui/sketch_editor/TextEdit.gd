@@ -1,7 +1,6 @@
 extends Node2D
 
 var sketch_path = [] # Array containing paths to all open files in the editor
-var parent_node = null # The parent node the editor was opened from, used to close the editor
 
 	# Tries to open the currently open sketch in the editor
 func _ready():
@@ -11,8 +10,7 @@ func _ready():
 
 	# Closes the editor, does not save upon exit
 func _on_Close_pressed():
-	if(parent_node != null):
-		parent_node.editor_node = null
+	Global.editor_node = null
 	self.queue_free()
 
 	# Opens dialog popup
