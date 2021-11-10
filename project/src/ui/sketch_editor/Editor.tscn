@@ -61,10 +61,11 @@ margin_left = 417.0
 margin_top = 105.0
 margin_right = 1199.0
 margin_bottom = 538.0
+rect_min_size = Vector2( 400, 140 )
 window_title = "Save sketch"
 access = 2
-current_dir = "/Users/Erik/Desktop/SoftwareEvolutionProject/Group-9-frontend-smce-gd/project"
-current_path = "/Users/Erik/Desktop/SoftwareEvolutionProject/Group-9-frontend-smce-gd/project/"
+current_dir = "/home/ludvig/programs/Group-9-frontend-smce-gd/project"
+current_path = "/home/ludvig/programs/Group-9-frontend-smce-gd/project/"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -74,12 +75,13 @@ margin_left = 416.0
 margin_top = 104.0
 margin_right = 1199.0
 margin_bottom = 539.0
+rect_min_size = Vector2( 400, 140 )
 window_title = "Open a File"
 mode = 0
 access = 2
 filters = PoolStringArray( "*.ino ; SMCE Sketch files" )
-current_dir = "/Users/Erik/Desktop/SoftwareEvolutionProject/Group-9-frontend-smce-gd/project"
-current_path = "/Users/Erik/Desktop/SoftwareEvolutionProject/Group-9-frontend-smce-gd/project/"
+current_dir = "/home/ludvig/programs/Group-9-frontend-smce-gd/project"
+current_path = "/home/ludvig/programs/Group-9-frontend-smce-gd/project/"
 __meta__ = {
 "_edit_use_anchors_": false
 }

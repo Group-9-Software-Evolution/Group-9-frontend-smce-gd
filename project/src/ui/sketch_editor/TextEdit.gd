@@ -4,9 +4,32 @@ var sketch_path = [] # Array containing paths to all open files in the editor
 
 	# Tries to open the currently open sketch in the editor
 func _ready():
+	set_syntax()
 	if(sketch_path):
 		_on_OpenFileDialog_file_selected(sketch_path[0])
 	sketch_path.append(" ")
+	
+	
+func set_syntax(): # much code here is from group 10
+	#Arduino syntax highlighting
+	$TabContainer/TextEdit.add_color_region('//','',Color(0.638306, 0.65625, 0.65625)) # comments
+	$TabContainer/TextEdit.add_color_region('/*','*/',Color(0.834412, 0.847656, 0.847656)) # info boxes
+	$TabContainer/TextEdit.add_color_region('"','"',Color(0.085144, 0.605469, 0.56721)) # Strings
+
+	#variables
+	var varTypes = ['PROGMEM','sizeof','HIGH','LOW','OUTPUT','uint8_t','private','public','class','static','const','float','int','String','uint16_t','boolean','bool','void','byte','unsigned','long','char','uint32_t','word','struct']
+	for v in varTypes:
+		$TabContainer/TextEdit.add_keyword_color(v,Color(0.228943, 0.945313, 0.844573))
+	
+	#operators/keywords	
+	var operators = ['ifndef','endif','define','ifdef','include','setup','loop','if','for','while','switch','else','case','break','and','or','final','return']
+	for o in operators:
+		$TabContainer/TextEdit.add_keyword_color(o,Color(0.605167, 0.875, 0.071777))
+	
+	#stream, serial, other operations
+	var other = ['interrupts','noInterrupts','CAN','setCursor','display','bit','read','peek','onReceive','onRequest','flush', 'requestFrom','endTransmission','beginTransmission','setClock', 'status','write','size_t','Stream','Serial','begin','end','stop','print','printf','println','delay','attach','readMsgBuf','sendMsgBuf']
+	for t in other:
+		$TabContainer/TextEdit.add_keyword_color(t,Color(0.976563, 0.599444, 0.324249))
 
 	# Closes the editor, does not save upon exit
 func _on_Close_pressed():
