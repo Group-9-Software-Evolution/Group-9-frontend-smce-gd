@@ -7,9 +7,6 @@ func _ready():
 	set_syntax()
 	if(sketch_path):
 		_on_OpenFileDialog_file_selected(sketch_path[0])
-<<<<<<< HEAD
-=======
-	sketch_path.append(" ")
 	
 	
 func set_syntax(): # much code here is from group 10
@@ -32,7 +29,6 @@ func set_syntax(): # much code here is from group 10
 	var other = ['interrupts','noInterrupts','CAN','setCursor','display','bit','read','peek','onReceive','onRequest','flush', 'requestFrom','endTransmission','beginTransmission','setClock', 'status','write','size_t','Stream','Serial','begin','end','stop','print','printf','println','delay','attach','readMsgBuf','sendMsgBuf']
 	for t in other:
 		$TabContainer/TextEdit.add_keyword_color(t,Color(0.976563, 0.599444, 0.324249))
->>>>>>> 66242577d9b2c31d8c60e4845f84d91d22d493b9
 
 	# Closes the editor, does not save upon exit
 func _on_Close_pressed():
