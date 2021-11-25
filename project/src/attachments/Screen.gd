@@ -60,27 +60,6 @@ func _on_frame() -> void:
 	image.create_from_data(600,400, false, Image.FORMAT_RGB8, image_from_buffer)
 	image_texture.create_from_image(image)
 	screen_texture_rect.texture = image_texture
-	print("hej")
-
-func _physics_process(delta):
-	viewport.get_screen().global_transform.origin = global_transform.origin
-	viewport.get_screen().global_transform.basis = global_transform.basis
-	effect.get_material().set_shader_param("factor", distort)
-	
-	if ! view || ! view.is_valid():
-		return
-	var buffer = view.framebuffers(pin)
-	var new_res = Vector2(buffer.get_width(), buffer.get_height())
-	var new_freq = buffer.get_freq()
-	if new_res != resolution:
-		viewport.size = new_res
-		effect.get_material().set_shader_param("resolution", viewport.size)
-		effect.rect_size = new_res
-		resolution = new_res
-		
-	if new_freq != fps && new_freq != 0:
-		timer.wait_time = 1.0/new_freq
-		fps = new_freq
 
 #func visualize_content() -> String:
 #	return "   Resolution: %dx%d\n   FPS: %d\n   V Flip: %s\n   H Flip: %s" % [resolution.x, resolution.y, fps, hflip]

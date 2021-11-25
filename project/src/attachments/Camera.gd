@@ -81,7 +81,6 @@ func _on_frame() -> void:
 		return
 	
 	var texture: Texture = viewport.get_texture()
-	
 	if texture.get_height() * texture.get_width() > 0:
 		var img = texture.get_data()
 		
