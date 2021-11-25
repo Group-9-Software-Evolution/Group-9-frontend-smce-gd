@@ -39,7 +39,7 @@ var _classes: Array = [
 	preload("res://src/attachments/Gyroscope.gd"),
 	preload("res://src/utilities/sensors/odometer/Odometer.gd"),
 	RayCar, RayWheel, UltraSonic,
-	preload("res://src/attachments/Odometer.gd")]
+	preload("res://src/attachments/Odometer.gd"), Screen]
 
 var classes: Dictionary = {}
 
