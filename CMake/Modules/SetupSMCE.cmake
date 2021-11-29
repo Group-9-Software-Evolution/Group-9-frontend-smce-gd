@@ -46,8 +46,8 @@ elseif (SMCEGD_SMCE_LINKING STREQUAL "STATIC")
 elseif (SMCEGD_SMCE_LINKING STREQUAL "SOURCE")
   include (FetchContent)
   FetchContent_Declare (libsmce
-      GIT_REPOSITORY "https://github.com/ItJustWorksTM/libSMCE"
-      GIT_TAG v1.4.0
+      GIT_REPOSITORY "https://github.com/Group-9-Software-Evolution/Group-9-backend-libSMCE"
+      GIT_TAG feature/16-Arduino-Graphics
       GIT_SHALLOW On
   )
   FetchContent_GetProperties (libsmce)
@@ -62,7 +62,7 @@ elseif (SMCEGD_SMCE_LINKING STREQUAL "SOURCE")
     set (SMCE_BUILD_SHARED Off CACHE INTERNAL "")
     set (SMCE_BUILD_STATIC On CACHE INTERNAL "")
     set (SMCE_CXXRT_LINKING "${SMCEGD_CXXRT_LINKING}" CACHE INTERNAL "")
-    set (SMCE_BOOST_LINKING "AUTO" CACHE INTERNAL "")
+    set (SMCE_BOOST_LINKING "SOURCE" CACHE INTERNAL "")
     add_subdirectory ("${libsmce_SOURCE_DIR}" "${libsmce_BINARY_DIR}" EXCLUDE_FROM_ALL)
   endif ()
   add_library (smcegd_SMCE ALIAS SMCE_static)

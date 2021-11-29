@@ -9,13 +9,14 @@
 #define _MKR_RGB_MATRIX_H
 
 #include <ArduinoGraphics.h>
-#include <SMCE_framebuffer.h>
+#include <SMCE_framebuffer.hpp>
 
-#define RGB_MATRIX_WIDTH  12
-#define RGB_MATRIX_HEIGHT 7
+#define RGB_MATRIX_WIDTH  600
+#define RGB_MATRIX_HEIGHT 400
 
 class RGBMatrixClass : public ArduinoGraphics {
   public:
+    RGBMatrixClass();
     int begin();
     void end();
 
@@ -23,7 +24,7 @@ class RGBMatrixClass : public ArduinoGraphics {
     virtual void set(int x, int y, uint8_t r, uint8_t g, uint8_t b);
 
   private:
-    SMCE_framebuffer m_framebuffer;
+    SMCE_Framebuffer m_framebuffer;
 };
 
 extern RGBMatrixClass MATRIX;

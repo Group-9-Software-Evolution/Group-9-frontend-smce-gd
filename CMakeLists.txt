@@ -53,7 +53,7 @@ endif ()
 list (APPEND GDCPP_NEEDED_CLASSES Reference Node Resource _ResourceLoader)
 include (SetupGodotCpp)
 
-add_library (godot-smce MODULE project/share/library_patches/Arduino_MKRRGB/src/MKRRGBMatrix.h)
+add_library (godot-smce MODULE)
 target_sources (godot-smce PRIVATE
         src/lib.cxx
         src/bind/Board.cxx
