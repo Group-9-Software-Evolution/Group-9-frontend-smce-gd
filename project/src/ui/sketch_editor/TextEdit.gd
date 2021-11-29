@@ -4,6 +4,7 @@ var sketch_path = [] # Array containing paths to all open files in the editor
 
 	# Tries to open the currently open sketch in the editor
 func _ready():
+	get_tree().root.connect("size_changed", self, "resize")
 	set_syntax()
 	if(sketch_path):
 		_on_OpenFileDialog_file_selected(sketch_path[0])
@@ -109,3 +110,8 @@ func _on_Node2D_visibility_changed():
 		_on_NewSketch_pressed()
 		sketch_path.pop_back()
 		_on_OpenFileDialog_file_selected(sketch_path.back())
+
+
+func resize():
+	$Panel.set_size(self.get_viewport_rect().size)
+	$TabContainer.set_size(self.get_viewport_rect().size)

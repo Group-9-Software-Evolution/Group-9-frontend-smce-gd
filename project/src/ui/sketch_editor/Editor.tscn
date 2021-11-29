@@ -64,8 +64,8 @@ margin_bottom = 538.0
 rect_min_size = Vector2( 400, 140 )
 window_title = "Save sketch"
 access = 2
-current_dir = "/home/ludvig/programs/Group-9-frontend-smce-gd/project"
-current_path = "/home/ludvig/programs/Group-9-frontend-smce-gd/project/"
+current_dir = "/Users/Erik/Desktop/SoftwareEvolutionProject/Group-9-frontend-smce-gd/project"
+current_path = "/Users/Erik/Desktop/SoftwareEvolutionProject/Group-9-frontend-smce-gd/project/"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -80,8 +80,8 @@ window_title = "Open a File"
 mode = 0
 access = 2
 filters = PoolStringArray( "*.ino ; SMCE Sketch files" )
-current_dir = "/home/ludvig/programs/Group-9-frontend-smce-gd/project"
-current_path = "/home/ludvig/programs/Group-9-frontend-smce-gd/project/"
+current_dir = "/Users/Erik/Desktop/SoftwareEvolutionProject/Group-9-frontend-smce-gd/project"
+current_path = "/Users/Erik/Desktop/SoftwareEvolutionProject/Group-9-frontend-smce-gd/project/"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -149,6 +149,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[connection signal="item_rect_changed" from="." to="." method="_on_Node2D_item_rect_changed"]
 [connection signal="pressed" from="SavedNotification/Button" to="." method="_on_Button_pressed"]
 [connection signal="file_selected" from="SaveFileDialog" to="." method="_on_SaveFileDialog_file_selected"]
 [connection signal="file_selected" from="OpenFileDialog" to="." method="_on_OpenFileDialog_file_selected"]
