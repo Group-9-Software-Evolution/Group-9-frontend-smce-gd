@@ -6,6 +6,7 @@ cmake-build-*/
 
 # SMCE
 .cmaw
+build
 
 # Godot
 project/.import
