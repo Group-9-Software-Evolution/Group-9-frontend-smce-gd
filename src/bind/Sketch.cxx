@@ -48,7 +48,25 @@ void Sketch::init(String src, String home_dir) {
                           .patch_uri = "file://" + (std::filesystem::absolute(std_str(home_dir)) /
                                                     "library_patches" / "smartcar_shield")
                                                        .generic_string(),
-                          .defaults = smce::PluginManifest::Defaults::arduino}}}};
+                          .defaults = smce::PluginManifest::Defaults::arduino},
+                          smce::PluginManifest{
+                          .name = "mkrrgb",
+                          .depends = {"arduino_graphics"},
+                          .version = "1.0.0",
+                          .uri = "https://github.com/arduino-libraries/Arduino_MKRRGB/archive/refs/tags/1.0.0.tar.gz",
+                          .patch_uri = "file://" + (std::filesystem::absolute(std_str(home_dir)) /
+                                                    "library_patches" / "mkrrgb")
+                                                       .generic_string(),
+                          .defaults = smce::PluginManifest::Defaults::arduino},
+                          smce::PluginManifest{
+                          .name = "arduino_graphics",
+                          .version = "1.0.0",
+                          .uri = "https://github.com/arduino-libraries/ArduinoGraphics/archive/refs/tags/1.0.0.tar.gz",
+                          .patch_uri = "file://" + (std::filesystem::absolute(std_str(home_dir)) /
+                                                    "library_patches" / "arduino_graphics")
+                                                       .generic_string(),
+                          .defaults = smce::PluginManifest::Defaults::arduino}
+                          }}};
 }
 
 String Sketch::get_source() { return sketch.get_source().c_str(); }
