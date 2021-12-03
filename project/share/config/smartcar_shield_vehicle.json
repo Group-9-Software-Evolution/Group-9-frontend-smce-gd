@@ -12,6 +12,10 @@
          "class": "Camera",
          "name": "Front Camera"
       },
+      "Front3": {
+         "class": "Screen",
+         "name": "Front Screen"
+      },
       "FrontTop": {
          "class": "UltraSonic",
          "name": "Front UltraSonic",
