@@ -35,7 +35,7 @@ class FrameBuffer : public Reference {
     smce::FrameBuffer frame_buf;
 
   public:
-    FrameBuffer() : frame_buf(smce::BoardView{}.frame_buffers[0]) {}
+    FrameBuffer() : frame_buf(smce::BoardView{}.frame_buffers[1]) {}
 
     static void _register_methods();
     void _init() {}

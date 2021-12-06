@@ -27,7 +27,7 @@ onready var image = Image.new()
 onready var image_texture = ImageTexture.new()
 onready var screen_texture_rect = TextureRect.new()
 
-export var pin = 0
+export var pin = 1
 export(float, 0, 1) var distort = 0.75
 export(float) var fov = 90
 export(float) var far = 300
@@ -56,10 +56,12 @@ func _ready():
 func _on_frame() -> void:
 	if ! view || ! view.is_valid():
 		return
-	var image_from_buffer = view.framebuffers(pin).read_rgb888()
+	var image_from_buffer = view.framebuffers(0).read_rgb888()
+	if image_from_buffer.empty():
+	    print("image_from_buffer")
 	image.create_from_data(600,400, false, Image.FORMAT_RGB8, image_from_buffer)
-	image_texture.create_from_image(image)
-	screen_texture_rect.texture = image_texture
+#	image_texture.create_from_image(image)
+#	screen_texture_rect.texture = image_texture
 
 #func visualize_content() -> String:
 #	return "   Resolution: %dx%d\n   FPS: %d\n   V Flip: %s\n   H Flip: %s" % [resolution.x, resolution.y, fps, hflip]

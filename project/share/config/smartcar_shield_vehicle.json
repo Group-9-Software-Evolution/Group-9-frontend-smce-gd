@@ -14,7 +14,10 @@
       },
       "Front3": {
          "class": "Screen",
-         "name": "Front Screen"
+         "name": "Front Screen",
+         "props": {
+            "pin": 1
+         }
       },
       "FrontTop": {
          "class": "UltraSonic",
