@@ -8,15 +8,11 @@
             "pin": 0
          }
       },
-      "Front2": {
-         "class": "Camera",
-         "name": "Front Camera"
-      },
       "Front3": {
          "class": "Screen",
          "name": "Front Screen",
          "props": {
-            "pin": 1
+            "pin": 0
          }
       },
       "FrontTop": {

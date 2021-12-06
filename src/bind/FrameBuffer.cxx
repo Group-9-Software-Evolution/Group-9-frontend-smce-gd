@@ -55,9 +55,7 @@ bool FrameBuffer::write_rgb888(Ref<Image> img) {
 }
 
 PoolByteArray FrameBuffer::read_rgb888() {
-    std::cout << "Heightt:" <<frame_buf.get_height() << std::endl;
     auto bytes = PoolByteArray{};
-
     bytes.resize(frame_buf.get_height() * frame_buf.get_width() * 3);
     const auto byte_span =
         std::span{reinterpret_cast<std::byte*>(bytes.write().ptr()), static_cast<size_t>(bytes.size())};
