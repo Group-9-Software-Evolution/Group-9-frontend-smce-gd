@@ -21,6 +21,8 @@ onready var debug_canvas = DebugCanvas
 onready var focus_owner = FocusOwner
 onready var mod_manager = ModManager
 
+var editor_node = null
+
 var environments: Dictionary = {
 	"playground/Playground": preload("res://src/environments/playground/Playground.tscn"),
 }

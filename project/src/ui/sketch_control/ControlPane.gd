@@ -20,6 +20,7 @@ extends VBoxContainer
 var notification_t = preload("res://src/ui/simple_notification/SimpleNotification.tscn")
 var collapsable_t = preload("res://src/ui/collapsable/collapsable.tscn")
 
+
 signal notification_created
 signal grab_focus
 
@@ -28,6 +29,7 @@ var _board = null
 
 onready var compile_btn: Button = $SketchSlot/VBoxContainer2/HBoxContainer/HBoxContainer/Compile
 onready var compile_log_btn: Button = $SketchSlot/VBoxContainer2/HBoxContainer/HBoxContainer/CompileLog
+onready var edit_btn: Button = $SketchSlot/VBoxContainer2/HBoxContainer/HBoxContainer/Edit
 onready var sketch_status: Label = $SketchSlot/VBoxContainer2/VBoxContainer/SketchStatus
 
 onready var close_btn: ToolButton = $MarginContainer/CloseButton
@@ -111,6 +113,7 @@ func _ready():
 	
 	compile_btn.connect("pressed", self, "_on_compile")
 	compile_log_btn.connect("pressed", self, "_show_compile_log")
+	edit_btn.connect("pressed", self, "_open_sketch_editor")
 	
 	close_btn.connect("pressed", self, "_on_close")
 	pause_btn.connect("pressed", self, "_on_pause")
@@ -235,6 +238,20 @@ func _on_board_log(part: String):
 func _on_compile() -> void:
 	if ! _toolchain.compile(_board.get_sketch()):
 		_create_notification("Failed to start compilation", 5)
+
+# Opens a sketch editor (with the current sketch already loaded) as a child node of the current scene
+func _open_sketch_editor() -> void:
+	if(Global.editor_node == null):
+		var editor_scene = preload("res://src/ui/sketch_editor/Editor.tscn");
+		Global.editor_node = editor_scene.instance()
+		Global.editor_node.sketch_path.append(sketch_path)
+		get_tree().get_root().add_child(Global.editor_node)
+	else:
+		print(Global.editor_node.sketch_path)
+		if(!Global.editor_node.sketch_path.has(sketch_path)):
+			Global.editor_node.sketch_path.append(sketch_path)
+			Global.editor_node._on_Node2D_visibility_changed()
+		Global.editor_node.show()
 
 
 func _on_close() -> void:

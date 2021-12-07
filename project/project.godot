@@ -29,12 +29,12 @@ _global_script_classes=[ {
 "language": "NativeScript",
 "path": "res://src/bind/Board.gdns"
 }, {
-"base": "",
+"base": "Reference",
 "class": "BoardConfig",
 "language": "NativeScript",
 "path": "res://src/bind/BoardConfig.gdns"
 }, {
-"base": "",
+"base": "Node",
 "class": "BoardView",
 "language": "NativeScript",
 "path": "res://src/bind/BoardView.gdns"
@@ -159,7 +159,7 @@ _global_script_classes=[ {
 "language": "NativeScript",
 "path": "res://src/bind/UartChannelConfig.gdns"
 }, {
-"base": "",
+"base": "Node",
 "class": "UartSlurper",
 "language": "NativeScript",
 "path": "res://src/bind/UartSlurper.gdns"
