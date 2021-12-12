@@ -16,8 +16,10 @@
  *
  */
 
+#include <iostream>
 #include <span>
 #include "bind/FrameBuffer.hxx"
+
 
 using namespace godot;
 
@@ -54,12 +56,9 @@ bool FrameBuffer::write_rgb888(Ref<Image> img) {
 
 PoolByteArray FrameBuffer::read_rgb888() {
     auto bytes = PoolByteArray{};
-
-    bytes.resize(FrameBuffer::get_height() * FrameBuffer::get_width() * 3);
-
+    bytes.resize(frame_buf.get_height() * frame_buf.get_width() * 3);
     const auto byte_span =
         std::span{reinterpret_cast<std::byte*>(bytes.write().ptr()), static_cast<size_t>(bytes.size())};
-
     // TODO: maybe check success :|
     frame_buf.read_rgb888(byte_span);
 

@@ -50,16 +50,21 @@ func _ready():
 	add_child(timer)
 	viewport.add_child(viewport_root)
 	add_child(viewport)
+	var new_position = Vector2( 940, 40 )
+	screen_texture_rect.rect_position = new_position
 	add_child(screen_texture_rect)
+
 
 #If the viewport is the child of a ViewportContainer it will become active and display anything it has inside.
 func _on_frame() -> void:
 	if ! view || ! view.is_valid():
 		return
+	#view.framebuffers(pin);
 	var image_from_buffer = view.framebuffers(pin).read_rgb888()
-	image.create_from_data(600,400, false, Image.FORMAT_RGB8, image_from_buffer)
+	image.create_from_data(300,200, false, Image.FORMAT_RGB8, image_from_buffer)
 	image_texture.create_from_image(image)
 	screen_texture_rect.texture = image_texture
+
 
 #func visualize_content() -> String:
 #	return "   Resolution: %dx%d\n   FPS: %d\n   V Flip: %s\n   H Flip: %s" % [resolution.x, resolution.y, fps, hflip]

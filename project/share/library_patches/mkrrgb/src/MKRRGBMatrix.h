@@ -11,8 +11,8 @@
 #include <ArduinoGraphics.h>
 #include <SMCE_framebuffer.hpp>
 
-#define RGB_MATRIX_WIDTH  600
-#define RGB_MATRIX_HEIGHT 400
+#define RGB_MATRIX_WIDTH  300
+#define RGB_MATRIX_HEIGHT 200
 
 class RGBMatrixClass : public ArduinoGraphics {
   public:

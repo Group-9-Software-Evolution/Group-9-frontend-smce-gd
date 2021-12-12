@@ -1,17 +1,18 @@
+#include <iostream>
 #include <SMCE_framebuffer.hpp>
 #include "MKRRGBMatrix.h"
 
 RGBMatrixClass MATRIX;
 
 
-RGBMatrixClass::RGBMatrixClass(): ArduinoGraphics {RGB_MATRIX_HEIGHT, RGB_MATRIX_WIDTH}, m_framebuffer{1} {}
+RGBMatrixClass::RGBMatrixClass(): ArduinoGraphics {RGB_MATRIX_HEIGHT, RGB_MATRIX_WIDTH}, m_framebuffer{0} {}
 
 int RGBMatrixClass::begin() {
     if (!ArduinoGraphics::begin()) {
         return 0;
     }
-
-    return m_framebuffer.begin(RGB_MATRIX_HEIGHT, RGB_MATRIX_WIDTH);
+    m_framebuffer.begin(RGB_MATRIX_HEIGHT, RGB_MATRIX_WIDTH);
+    return 1;
 }
 
 void RGBMatrixClass::end() {
